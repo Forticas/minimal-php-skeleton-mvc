@@ -27,6 +27,9 @@ class Dao
     public static function getOne($className, $args)
     {
         $classNameLower = strtolower($className);
+        $classNameLower = explode("\\", $classNameLower);
+        $classNameLower = end($classNameLower);
+
         $sql = "SELECT * From {$classNameLower} WHERE ";
 
         foreach (array_keys($args) as $key => $value)
@@ -47,7 +50,7 @@ class Dao
         }
 
         $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_CLASS, $className);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, $className);
         $result = $stmt->fetch();
 
         return $result;
@@ -55,6 +58,9 @@ class Dao
     public static function getMany($className, $args = [])
     {
         $classNameLower = strtolower($className);
+        $classNameLower = explode("\\", $classNameLower);
+        $classNameLower = end($classNameLower);
+
         $sql = "SELECT * From {$classNameLower}";
         if(count($args) != 0)
         {
@@ -77,7 +83,8 @@ class Dao
         }
 
         $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_CLASS, $className);
+
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, $className);
         $results = $stmt->fetchAll();
 
         return $results;
