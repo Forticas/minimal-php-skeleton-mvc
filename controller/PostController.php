@@ -10,8 +10,10 @@ class PostController extends Controller
     public function list()
     {
         //recupérer les information du Model
-        new Post();
+        $posts = (new Postsss())->getAll();
         // effectuer l'affichage
+
+        dd($posts);
 
         $this->renderView('list_posts');
 

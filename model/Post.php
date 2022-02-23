@@ -96,7 +96,7 @@ class Post extends Model
     public function getOneById(int $id)
     {
 
-        $post = Dao::getOne(Post::class,
+        $post = Dao::getOne(self::class,
             [
                 'id' => $id
             ]);

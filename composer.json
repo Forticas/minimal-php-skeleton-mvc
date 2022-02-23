@@ -14,5 +14,8 @@
             "email": "houssem@forticas.com"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/var-dumper": "^6.0",
+        "filp/whoops": "^2.14"
+    }
 }
