@@ -8,6 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ceci est la page qui affiche la liste des articles</h1>
+
+<header>
+    <h1>Header</h1>
+</header>
+<hr>
+
+<?= $content ?>
+
+<footer>
+    <h1>footer</h1>
+</footer>
 </body>
 </html>

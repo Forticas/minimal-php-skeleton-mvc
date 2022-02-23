@@ -3,8 +3,17 @@ namespace App\core;
 
 class Controller
 {
-    public function renderView(string $path){
+
+    public function renderView(string $path, $args = []){
+
+            foreach ($args as $key => $value)
+            {
+                $$key = $value;
+            }
+        ob_start();
         require_once __DIR__.'/../view/'.$path.'.php';
+        $content = ob_get_clean();
+        require_once __DIR__.'/../view/layout.php';
     }
 
     public function redirectTo(string $path)
