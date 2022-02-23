@@ -1,11 +1,9 @@
 <?php
-// TODO 1- définir un autoloader
+// TODO 1- définir un autoloader (2ème méthode)
 // TODO 2- Utilser les namespaces
-require_once __DIR__ . '/../core/Autoloader.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-Autoloader::init();
 
-/**************************************/
 $request = $_SERVER['REQUEST_URI'];
 
 // TODO organiser la partie configuration

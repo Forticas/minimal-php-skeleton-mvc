@@ -1,5 +1,7 @@
 <?php
 
+namespace App\core;
+
 class Dao
 {
 
@@ -11,12 +13,12 @@ class Dao
         $db_setting = parse_ini_file(__DIR__.'/../config.ini');
 
         try {
-            self::$cnx = new PDO(
+            self::$cnx = new \PDO(
                 "mysql:host={$db_setting['host']};dbname={$db_setting['dbname']};port={$db_setting['port']};charset=UTF8",
                 $db_setting['username'],
                 $db_setting['password']);
 
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo $e->getMessage();
             die;
         }

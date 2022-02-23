@@ -1,4 +1,8 @@
 <?php
+namespace App\model;
+
+use App\core\Model;
+use App\core\Dao;
 
 class Post extends Model
 {
