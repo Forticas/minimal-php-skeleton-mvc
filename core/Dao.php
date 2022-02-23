@@ -8,7 +8,7 @@ class Dao
     public static function connect()
     {
 
-        $db_setting = parse_ini_file(__DIR__.'/../conf/conf_data.ini');
+        $db_setting = parse_ini_file(__DIR__.'/../config.ini');
 
         try {
             self::$cnx = new PDO(

@@ -2,6 +2,9 @@
 // TODO 1- définir un autoloader
 // TODO 2- Utilser les namespaces
 require_once __DIR__.'/../core/Controller.php';
+require_once __DIR__.'/../core/Dao.php';
+require_once __DIR__.'/../core/Model.php';
+require_once __DIR__.'/../model/Post.php';
 require_once __DIR__.'/../controller/PostController.php';
 
 
