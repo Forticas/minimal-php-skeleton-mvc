@@ -1,15 +1,9 @@
 <?php
 // TODO 1- définir un autoloader
 // TODO 2- Utilser les namespaces
-spl_autoload_register(function ($class_name) {
-    $directories = ['controller', 'core', 'model'];
-    foreach ($directories as $directory) {
-        $filename = __DIR__ . '/../' . $directory . '/' . $class_name . '.php';
-        if (file_exists($filename))
-            include __DIR__ . '/../' . $directory . '/' . $class_name . '.php';
+require_once __DIR__ . '/../core/Autoloader.php';
 
-    }
-});
+Autoloader::init();
 
 /**************************************/
 $request = $_SERVER['REQUEST_URI'];
