@@ -23,7 +23,7 @@ class PostController extends Controller
     public function show($id)
     {
         //recupérer les information du Model
-
+        dd($id);
         // effectuer l'affichage
         require_once __DIR__ . '/../view/show_post.php';
     }

@@ -2,43 +2,25 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+// Débogueur
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
+
+
 // TODO organiser la partie configuration
 $config = parse_ini_file(__DIR__ . "/../config.ini");
-
 define('BASE_URI', $config['base_uri']);
 
 
-$request = $_SERVER['REQUEST_URI'];
+
+// Router
+use App\core\Router;
+
+$router = new Router();
+
+$router->register('/', '\App\controller\PostController::list');
+$router->register('/post/#id', '\App\controller\PostController::show');
+$router->run();
 
 
-
-
-// TODO creer un routeur
-
-switch ($request) {
-    case BASE_URI . '/':
-        {
-            // afficher page d'accueil
-
-        }
-        break;
-    case BASE_URI . '/posts':
-        {
-
-            $pc = new \App\controller\PostController();
-            $pc->list();
-
-        }
-        break;
-    case BASE_URI . '/post/#variable':
-        {
-            // TODO remodifier le routeur
-            $pc = new \App\controller\PostController();
-            //$pc->show($id);
-
-        }
-        break;
-}
