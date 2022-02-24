@@ -90,11 +90,31 @@ class Dao
         return $results;
     }
 
-   // TODO
-    public static function insert()
-    {
 
+    public static function insertOne(object $object, array $object_to_array)
+    {
+        $exploded_namespace = explode('\\', $object::class);
+        $className= '`'.strtolower(end($exploded_namespace)).'`';
+
+        $propreties =[];
+        $values=[];
+        foreach ($object_to_array as $key => $value)
+        {
+            $propreties[] = '`'.$key.'`';
+            $values[] = ':'.$key;
+        }
+        $propreties_to_string = implode(" , ", $propreties);
+        $values_to_string =  implode(" , ", $values);
+        $sql = "INSERT INTO {$className} ({$propreties_to_string}) VALUES ( {$values_to_string} )";
+
+        $stmt = self::$cnx->prepare($sql);
+
+        $stmt->execute($object_to_array);
+
+        return self::$cnx->lastInsertId();
     }
+
+    // TODO
     public static function edit()
     {
 
