@@ -1,6 +1,8 @@
 {
     "name": "houssem/minimal-php-skeleton-mvc",
     "type": "project",
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
     "autoload": {
         "psr-4": {
             "App\\controller\\": "controller/",
