@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace App\controller;
 
 use App\core\Controller;
@@ -23,9 +25,9 @@ class PostController extends Controller
     public function show($id)
     {
         //recupérer les information du Model
-        dd($id);
+        dump($id);
         // effectuer l'affichage
-        require_once __DIR__ . '/../view/show_post.php';
+        $this->renderView('post/show_post');
     }
 
     public function edit($id)
