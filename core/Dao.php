@@ -64,7 +64,7 @@ class Dao
         $sql = "SELECT * From {$classNameLower}";
         if(count($args) != 0)
         {
-            $sql .= ' WHERE';
+            $sql .= ' WHERE ';
             foreach (array_keys($args) as $key => $value)
             {
                 $sql .= $value.' = :'.$value;
