@@ -20,7 +20,7 @@
   ],
   "require": {
     "php": ">=8.0.2",
-    "forticas/minimal-php-skeleton-mvc": "dev-master@dev",
+    "forticas/minimal-php-skeleton-mvc": "^1.0",
     "symfony/var-dumper": "^6.0",
     "filp/whoops": "^2.14"
   },
