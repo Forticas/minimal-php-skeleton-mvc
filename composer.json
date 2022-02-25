@@ -1,32 +1,33 @@
 {
-    "name": "forticas/minimal-php-skeleton-mvc",
-    "type": "project",
-    "version": "1.0.0",
-    "minimum-stability": "dev",
-    "prefer-stable" : true,
-    "license": "GPL-3.0-or-later",
-    "autoload": {
-        "psr-4": {
-            "App\\controller\\": "controller/",
-            "App\\core\\": "core/",
-            "App\\model\\": "model/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Houssem TAYECH",
-            "email": "houssem@forticas.com"
-        }
-    ],
-    "require": {
-        "php": ">=8.0.2",
-        "houssem/minimal-php-skeleton-mvc":"dev-master@dev",
-        "symfony/var-dumper": "^6.0",
-        "filp/whoops": "^2.14"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/forticas/minimal-php-skeleton-mvc"
-        },
+  "name": "forticas/minimal-php-skeleton-mvc",
+  "type": "project",
+  "version": "1.0.0",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": "GPL-3.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "App\\controller\\": "controller/",
+      "App\\core\\": "core/",
+      "App\\model\\": "model/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Houssem TAYECH",
+      "email": "houssem@forticas.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0.2",
+    "houssem/minimal-php-skeleton-mvc": "dev-master@dev",
+    "symfony/var-dumper": "^6.0",
+    "filp/whoops": "^2.14"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/forticas/minimal-php-skeleton-mvc"
+    }
+  ]
 }
