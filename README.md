@@ -13,7 +13,7 @@ composer create-project forticas/minimal-php-skeleton-mvc project-name
 
 ## Project structure
 
-Add `controller` and `model` folders inside `src`
+`controller`, `model` and `view` folders are inside `src`
 
 ```
 project-name
