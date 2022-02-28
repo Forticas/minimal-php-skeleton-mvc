@@ -2,6 +2,12 @@
   "name": "forticas/minimal-php-skeleton-mvc",
   "description": "This is for education purpose",
   "type": "project",
+  "keywords": [
+    "PHP",
+    "Basic",
+    "Mini",
+    "Framework"
+  ],
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",

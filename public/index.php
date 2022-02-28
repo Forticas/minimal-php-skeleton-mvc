@@ -19,8 +19,7 @@ use App\core\Router;
 
 $router = new Router();
 
-$router->register('/', '\App\controller\PostController::list');
-$router->register('/post/#id', '\App\controller\PostController::show');
+$router->register('/post/#id', '\App\controller\TestController::index');
 $router->run();
 
 
