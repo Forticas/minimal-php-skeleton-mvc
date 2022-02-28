@@ -27,4 +27,10 @@ class Controller
         header("Location: {$_SERVER["REQUEST_SCHEME"]}://{$_SERVER["HTTP_HOST"]}" . BASE_URI . "/$path");
     }
 
+    public function json(array $content)
+    {
+        header('Content-Type: application/json');
+        echo json_encode($content);
+    }
+
 }
