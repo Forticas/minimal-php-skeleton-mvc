@@ -2,15 +2,10 @@
   "name": "forticas/minimal-php-skeleton-mvc",
   "description": "This is for education purpose",
   "type": "project",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "App\\": "src/",
-      "App\\core\\": "core/"
-    }
-  },
+
   "authors": [
     {
       "name": "Houssem TAYECH",
@@ -22,10 +17,10 @@
     "symfony/var-dumper": "^6.0",
     "filp/whoops": "^2.14"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/forticas/minimal-php-skeleton-mvc"
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "App\\core\\": "core/"
     }
-  ]
+  }
 }
