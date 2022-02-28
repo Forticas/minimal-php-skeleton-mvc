@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ceci est la page qui affiche la liste des articles</h1>
+    <h1>Ceci est la page qui affiche un SEUL  article</h1>
 </body>
 </html>

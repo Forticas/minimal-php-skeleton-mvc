@@ -1,8 +1,8 @@
 {
   "name": "forticas/minimal-php-skeleton-mvc",
-  "description": "Test",
+  "description": "This is for education purpose",
   "type": "project",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "license": "MIT",
   "autoload": {
