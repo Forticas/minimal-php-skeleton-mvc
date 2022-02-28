@@ -104,7 +104,7 @@ $this->json(array $content)
 
 define routing inside `index.php`
 
-Examples: 
+Examples : 
 ```php
 // project-name/public/index.php
 
@@ -123,10 +123,11 @@ $router->run();
 
 create your views files inside `project-name/src/view/`
 
-Examples:
+Examples :
 ```
 project-name 
 └───...
+│
 └───src
 │   └───...
 │   └───view
@@ -140,3 +141,45 @@ project-name
 │   
 │   ...
 ```
+
+### 4. Models
+Example : 
+```php
+// project-name/src/model/Post.php
+
+declare(strict_types=1)
+
+use App\core\Model;
+
+class Post extends Model
+{
+    private int $id;
+    private string $title;
+    //...
+    
+    /**
+     * @return int
+     */
+     public  function getId(): int{
+        return $this->id;
+    }
+    /**
+     * @return string
+     */
+     public  function getTitle(): string{
+        return $this->title;
+    }
+    /**
+     * @param string $title
+     * @return Post
+     */
+     public  function setTitle(string $title):self {
+        $this->title = $title;
+        return $this;
+    }
+}
+```
+
+### 5. Database predefined methods:
+
+`Coming soon...`
