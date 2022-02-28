@@ -5,7 +5,7 @@
 
 ## Installation
 
-You can install the package via composer:
+You can create new project via composer:
 
 ```bash
 composer create-project forticas/minimal-php-skeleton-mvc project-name
