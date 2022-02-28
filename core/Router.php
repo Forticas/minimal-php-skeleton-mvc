@@ -3,10 +3,23 @@ declare(strict_types=1);
 
 namespace App\core;
 
+/**
+ * Class Router
+ * @package App\core
+ * @author Houssem TAYECH <houssem@forticas.com>
+ */
 class Router
 {
-    private $actions = [];
+    /**
+     * @var array
+     */
+    private array $actions = [];
 
+    /**
+     * @param string $path
+     * @param string $callback
+     * @return void
+     */
     public function register(string $path, string $callback)
     {
         $this->actions[] = [
@@ -14,6 +27,9 @@ class Router
         ];
     }
 
+    /**
+     * @return void
+     */
     public function run()
     {
         $request = $_SERVER['REQUEST_URI'];
@@ -25,7 +41,7 @@ class Router
         $exploded_request_uri = explode("/", $request_without_base_uri);
 
         foreach ($this->actions as $action) {
-            // la route match exatement sans variables
+            // la route match without variables
             if ($request_without_base_uri == $action['path']) {
 
                 $this->runWithExactMatch($action['callback']);
@@ -54,7 +70,11 @@ class Router
 
     }
 
-    private function runWithExactMatch($callback)
+    /**
+     * @param string $callback
+     * @return void
+     */
+    private function runWithExactMatch(string $callback)
     {
         [$controller, $method] = explode("::", $callback);
         $controller_instance = new $controller();
@@ -62,7 +82,12 @@ class Router
 
     }
 
-    private function runWithParams($callback, $params)
+    /**
+     * @param string $callback
+     * @param array $params
+     * @return void
+     */
+    private function runWithParams(string $callback, array $params)
     {
         if (empty($params) || in_array("", $params)) {
             $this->showPageNotFound();
@@ -74,11 +99,14 @@ class Router
 
     }
 
-    private function showPageNotFound()
+    /**
+     * @return void
+     */
+    private function showPageNotFound(): void
     {
         http_response_code(404);
         echo <<<HTML
-        <html>
+        <html lang="en">
             <head>
                 <title>404 Not Found</title>
             </head>

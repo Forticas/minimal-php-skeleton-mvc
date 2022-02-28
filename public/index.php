@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// Débogueur
+// Debogger
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
@@ -18,8 +18,10 @@ define('BASE_URI', $config['base_uri']);
 use App\core\Router;
 
 $router = new Router();
-
+/************ Routes *************/
 $router->register('/post/#id', '\App\controller\TestController::index');
+
+/************ /Routes *************/
 $router->run();
 
 

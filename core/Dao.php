@@ -2,15 +2,21 @@
 declare(strict_types=1);
 
 namespace App\core;
-
-class Dao
+/**
+ * Class Dao
+ * @package App\core
+ * @author Houssem TAYECH <houssem@forticas.com>
+ */
+final class Dao
 {
 
     public static $cnx;
 
+    /**
+     * @return void
+     */
     public static function connect()
     {
-
         $db_setting = parse_ini_file(__DIR__.'/../config.ini');
 
         try {
@@ -25,7 +31,12 @@ class Dao
         }
     }
 
-    public static function getOne($className, $args)
+    /**
+     * @param string $className
+     * @param array $args
+     * @return mixed
+     */
+    public static function getOne(string $className, array $args): mixed
     {
         $classNameLower = strtolower($className);
         $classNameLower = explode("\\", $classNameLower);
@@ -56,7 +67,13 @@ class Dao
 
         return $result;
     }
-    public static function getMany($className, $args = [])
+
+    /**
+     * @param string $className
+     * @param array $args
+     * @return mixed
+     */
+    public static function getMany(string $className, array $args = []):mixed
     {
         $classNameLower = strtolower($className);
         $classNameLower = explode("\\", $classNameLower);
@@ -91,8 +108,12 @@ class Dao
         return $results;
     }
 
-
-    public static function insertOne(object $object, array $object_to_array)
+    /**
+     * @param object $object
+     * @param array $object_to_array
+     * @return int
+     */
+    public static function insertOne(object $object, array $object_to_array): int
     {
         $exploded_namespace = explode('\\', $object::class);
         $className= '`'.strtolower(end($exploded_namespace)).'`';

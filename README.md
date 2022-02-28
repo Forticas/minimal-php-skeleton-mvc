@@ -1,7 +1,7 @@
 # Minimal PHP Skeleton MVC
 
 ***
-**NB:** *this is for education purpose*
+> **NB:** *this is for education purpose*
 
 ## Installation
 
