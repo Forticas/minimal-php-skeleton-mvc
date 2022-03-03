@@ -64,8 +64,11 @@ base_uri = /project-name
 
 ```php
 // project-name/src/controller/DefaultController.php
+<?php
 
-declare(strict_types=1)
+declare(strict_types=1);
+
+namespace App\controller;
 
 use App\core\Controller;
 
@@ -74,12 +77,12 @@ class DefaultController extends Controller
     public function my_first_action(){
         //...
         $message = 'Hello World!';
-        $user = 'John Doe'
+        $user = 'John Doe';
         $this->renderView('defaut_folder_name/file_name',[
             'message' => $message,
             'userName' => $user
             //...
-        ])
+        ]);
     } 
     public function my_second_action(mixed ...$values){
         
@@ -147,7 +150,11 @@ Example :
 ```php
 // project-name/src/model/Post.php
 
-declare(strict_types=1)
+<?php
+
+declare(strict_types=1);
+
+namespace App\model;
 
 use App\core\Model;
 
