@@ -40,16 +40,16 @@ class Router
         $request_without_base_uri = str_replace(BASE_URI, "", $request);
         $exploded_request_uri = explode("/", $request_without_base_uri);
 
+
         foreach ($this->actions as $action) {
             // la route match without variables
             if ($request_without_base_uri == $action['path']) {
-
                 $this->runWithExactMatch($action['callback']);
                 return;
             }
-
+        }
             $exploded_defined_path = explode("/", $action['path']);
-
+        foreach ($this->actions as $action) {
             // compare length
             if (count($exploded_defined_path) == count($exploded_request_uri)) {
 
