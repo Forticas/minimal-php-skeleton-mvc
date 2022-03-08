@@ -128,9 +128,33 @@ final class Dao
         return self::$cnx->lastInsertId();
     }
 
-    // TODO
-    public static function edit()
+    /**
+     * @param string $className le nom de la classe à modifier
+     * @param array $args les arguments à modifier
+     * @param array $criteria la condition de l'élément à modifier, il faut que ça soit l'identifiant
+     * @return bool retoune true si la modification a été bien effectué et false dans le cas contraire
+     */
+    public static function edit(string $className, array $args, array $criteria) : bool
     {
+        $classNameLower = strtolower($className);
+        $classNameLower = explode("\\", $classNameLower);
+        $classNameLower = end($classNameLower);
+
+        $sql = "UPDATE {$classNameLower} SET";
+
+        foreach (array_keys($args) as $key => $value) {
+            $sql .= $value . ' = :' . $value;
+            if ($key < count($args) - 1) {
+                $sql .= ' , ';
+            }
+        }
+
+        $sql .= ' WHERE '.array_key_first($criteria)." = :".array_key_first($criteria);
+        /**
+         * @var \PDOStatement $stmt
+         */
+        $stmt = self::$cnx->prepare($sql);
+        return $stmt->execute(array_merge($args, $criteria));
 
     }
 
@@ -139,7 +163,7 @@ final class Dao
      * @param array $args les critères de l'élément à supprimer
      * @return bool true si la suppression a été effectuée si non false
      */
-    public static function delete(string $className, array $args) : bool
+    public static function delete(string $className, array $args): bool
     {
         $classNameLower = strtolower($className);
         $classNameLower = explode("\\", $classNameLower);
