@@ -55,11 +55,17 @@ class Router
 
                 if (count(array_intersect($exploded_defined_path, $exploded_request_uri)) > 1) {
                     $args = [];
+                    $isValid = true;
                     foreach ($exploded_defined_path as $key => $value) {
                         if (str_starts_with($value, "#")) {
                             $args[] = $exploded_request_uri[$key];
+                        }elseif ($exploded_defined_path[$key] != $exploded_request_uri[$key])
+                        {
+                            $isValid = false;
+                            break;
                         }
                     }
+                    if (!$isValid) continue;
                     $this->runWithParams($action['callback'], $args);
                     return;
                 }
