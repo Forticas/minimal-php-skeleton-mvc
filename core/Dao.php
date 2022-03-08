@@ -140,7 +140,7 @@ final class Dao
         $classNameLower = explode("\\", $classNameLower);
         $classNameLower = end($classNameLower);
 
-        $sql = "UPDATE {$classNameLower} SET";
+        $sql = "UPDATE {$classNameLower} SET ";
 
         foreach (array_keys($args) as $key => $value) {
             $sql .= $value . ' = :' . $value;
