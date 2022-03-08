@@ -8,7 +8,7 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
 
-// TODO organiser la partie configuration
+
 $config = parse_ini_file(__DIR__ . "/../config.ini");
 define('BASE_URI', $config['base_uri']);
 
@@ -19,7 +19,9 @@ use App\core\Router;
 
 $router = new Router();
 /************ Routes *************/
-$router->register('/post/#id', '\App\controller\TestController::index');
+$router->register('/', '\App\controller\DefaultController::home');
+$router->register('/contact', '\App\controller\DefaultController::contact');
+
 
 /************ /Routes *************/
 $router->run();
